@@ -12,13 +12,13 @@ It's insecure and definitely subject to a lot of change, but this is my first ac
 
 ## Table of Contents
 
-- [File structure](#Filestructure)
+- [File structure](#File structure)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
-## Filestructure
+## Files tructure
 
 Provide step-by-step instructions on how to install and set up your project. Include any dependencies or prerequisites.
 
