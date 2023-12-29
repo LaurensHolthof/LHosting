@@ -1,9 +1,9 @@
 # LHosting
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/your-username/your-repo.svg)](https://github.com/your-username/your-repo/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/your-username/your-repo.svg)](https://github.com/your-username/your-repo/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/your-username/your-repo.svg)](https://github.com/your-username/your-repo/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/LaurensHolthof/LHosting.svg)](https://github.com/LaurensHolthof/LHosting/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/LaurensHolthof/LHosting.svg)](https://github.com/LaurensHolthof/LHosting/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/LaurensHolthof/LHosting.svg)](https://github.com/LaurensHolthof/LHosting/issues)
 
 ## Description
 
