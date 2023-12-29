@@ -12,7 +12,7 @@ It's insecure and definitely subject to a lot of change, but this is my first ac
 
 ## Table of Contents
 
-- [File structure](#File structure)
+- [File structure](#Filestructure)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
