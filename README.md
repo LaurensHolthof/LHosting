@@ -7,17 +7,18 @@
 
 ## Description
 
-A brief description of your project. Explain what it does and what problem it solves.
+This project is a little file hosting/sharing platform, made as both a passion project and as an easy way to share and host files for me and my friends.
+It's insecure and definitely subject to a lot of change, but this is my first actual project :).
 
 ## Table of Contents
 
-- [Installation](#installation)
+- [File structure](#Filestructure)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
-## Installation
+## Filestructure
 
 Provide step-by-step instructions on how to install and set up your project. Include any dependencies or prerequisites.
 
