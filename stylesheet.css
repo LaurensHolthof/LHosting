@@ -1,0 +1,122 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+header {
+    background-color: rgb(203, 203, 203);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    border-radius: 5px;
+}
+
+#HeaderImage {
+    height: 50px;
+    padding-left: 10px;
+}
+
+#Header {
+    position: relative;
+    padding: 5px;
+    float: right;
+}
+
+.HeaderButton {
+    border: none;
+    background-color: #24a0ed;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+.HeaderButton:hover {
+    background-color: #1a75ae;
+}
+
+.selected {
+    background-color: #06b703;
+}
+
+.selected:hover {
+    background-color: #028200;
+}
+
+.Pagetitle {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#drop_zone {
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    left: 25vw;
+    top: 25vh;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 5px solid darkgrey;
+    background-color: rgb(244, 244, 244);
+    border-radius: 20px;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+}
+
+#IndexDiv {
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    left: 25vw;
+    top: 25vh;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#FilesTable {
+    width: 80vw;
+    position: relative;
+    left: 10vw;
+    border: 10px solid darkgrey;
+    border-radius: 20px;
+}
+
+#MainTable {
+    position: relative;
+    border: 2px solid white;
+    background-color: white;
+    border-radius: 20px;
+    user-select: none;
+    width: 100%;
+}
+
+.board_square {
+    border-radius: 3px;
+    border: 2px solid white;
+    background-color: rgb(230, 230, 230);
+    text-align: left; 
+    vertical-align: middle;
+    height: 40px;
+    padding: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+}
+
+.delete {
+    text-align: center; 
+    width: 85px;
+    font-size: 20px;
+    background-color: #f91414;
+    color: white;
+    border-radius: 10px;
+}
+
+.delete:hover {
+    background-color: #d11a1a;
+}

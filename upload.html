@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>LHosting</title>
+  <meta name="author" content="Laurens Holthof">
+  <link rel="shortcut icon" href="/assets/images/lhsfavico-2.png" type="image/x-icon">
+  <script src="code.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+  <header>
+    <a href="https://lhsolutions.be"><img id="HeaderImage" src="/lhs.png" /></a>
+    <div id="Header">
+      <a href="./"><button class="HeaderButton">Home</button></a>
+      <a href="./upload"><button class="HeaderButton selected">Upload</button></a>
+      <a href="./file-explorer"><button class="HeaderButton">Files</button></a>
+    </div>
+  </header>
+  <h1 class="Pagetitle">Upload zone</h1>
+  <div id="drop_zone">
+    <p>Click to upload or drag files here (Max 2GB)</p>
+    <p>Files dropped here will end up in the <a href="./files">./files directory</a>.</p>
+    <input type="file" id="fileInput" style="display: none;">
+  </div>
+</body>
