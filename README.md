@@ -13,17 +13,9 @@ It's insecure and definitely subject to a lot of change, but this is my first ac
 ## Table of Contents
 
 - [File structure](#Filestructure)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
 
-## Files tructure
+## Filestructure
 
-Provide step-by-step instructions on how to install and set up your project. Include any dependencies or prerequisites.
-
-```bash
-# Example installation steps
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
-npm install
+There are three webpages, two script files, and one style document.
+The three pages share the js file, and the php file is used by the backend to handle file storage on the server. The file explorer uses js to dynamically draw the table of items stored on the server. 
+Missing are a htaccess file and the files folder, as those are irrelevant in the github project.
