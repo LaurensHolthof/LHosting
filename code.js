@@ -1,8 +1,34 @@
 let dropZone = document.getElementById('drop_zone');
 let fileInput = document.getElementById('fileInput');
+let ItemName = ["Item1", "Item2", "Test"];
+let filenamesArray = [];
+
+    // Create a new XMLHttpRequest
+    var xmlhttp = new XMLHttpRequest();
+
+    // Set up the event handler for the request
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Parse the JSON response
+            var filenames = JSON.parse(this.responseText);
+
+            // Push each filename into the global array
+            filenames.forEach(function(filename) {
+                filenamesArray.push(filename);
+            });
+            DrawTable();
+            // You can use 'filenamesArray' for further processing or logging
+            console.log("Filenames Array:", filenamesArray);
+        }
+    };
+
+    // Open and send the request to the server
+    xmlhttp.open("GET", "get_filenames.php", true);
+    xmlhttp.send();
 
 window.onload = function() {
-    DrawTable();
+    //generate_array();
+    
   };
   
 
@@ -44,16 +70,36 @@ function uploadFile(file) {
     xhr.send(formData);
 }
 
+function generate_array() {
+
+    fetch('get_filenames.php')
+        .then(response => response.json())
+        .then(filenames => {
+            // Push each filename into the array
+            filenames.forEach(function(filename) {
+                filenamesArray.push(filename);
+            });
+
+            // You can use 'filenamesArray' for further processing or logging
+            console.log("Filenames Array:", filenamesArray);
+        })
+        .catch(error => console.error('Error:', error));
+
+}
+
 function DrawTable() {
     document.getElementById("FilesTable").innerHTML = Generate_table_html();
 }
 
 function Generate_table_html() {
+    if(filenamesArray.length == 0) {
+        return '<p style="margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;" >There are no files</p>'
+    }
     let table_html = "";
-    for(let i = 0; i < 3; i++) {
+    for(let i = 0; i < filenamesArray.length; i++) {
         let row_html = "<tr>";
         for(let j = 0; j < 2; j++) {
-            row_html += Generate_table_Cell(j);
+            row_html += Generate_table_Cell(filenamesArray[i], j);
         }
         row_html += "</tr>";
         table_html += row_html;
@@ -61,18 +107,25 @@ function Generate_table_html() {
     return `<table id="MainTable">${table_html}</table>`;
 }
 
-function Generate_table_Cell(type) {
+function Generate_table_Cell(name, type) {
     let CellType = "";
     let Clickable = "";
     let text = "";
     if(type == 0) {
         CellType = "filename";
         Clickable = 'onclick="nameclick(this);"';
-        text = "Filename";
+        text = `<a class="filelink" href="files/${name}">${name}</a>`;
     } else if(type == 1) {
         CellType = "delete";
-        Clickable = 'onclick="delete(this);"';
+        Clickable = 'onclick="Delete(this);"';
         text = "Delete";
     }
     return `<td class="board_square ${CellType}" ${Clickable}>${text}</td>`;
+}
+
+function Delete(cell) {
+    let index = cell.parentNode.rowIndex;
+    filenamesArray.splice(index, 1);
+    DrawTable();
+    return;
 }
