@@ -125,7 +125,17 @@ function Generate_table_Cell(name, type) {
 
 function Delete(cell) {
     let index = cell.parentNode.rowIndex;
+    deleteFile(filenamesArray[index]);
     filenamesArray.splice(index, 1);
     DrawTable();
     return;
+}
+
+function deleteFile(filename) {
+    fetch('delete_file.php?filename=' + encodeURIComponent(filename))
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+        })
+        .catch(error => console.error('Error:', error));
 }

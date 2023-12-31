@@ -140,3 +140,9 @@ header {
     background-color: transparent;
     text-decoration: none;
 }
+
+.filelink:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
