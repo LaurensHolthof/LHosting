@@ -1,6 +1,5 @@
 let dropZone = document.getElementById('drop_zone');
 let fileInput = document.getElementById('fileInput');
-let ItemName = ["Item1", "Item2", "Test"];
 let filenamesArray = [];
 
     // Create a new XMLHttpRequest
