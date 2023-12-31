@@ -2,34 +2,20 @@ let dropZone = document.getElementById('drop_zone');
 let fileInput = document.getElementById('fileInput');
 let filenamesArray = [];
 
-    // Create a new XMLHttpRequest
-    var xmlhttp = new XMLHttpRequest();
+var xmlhttp = new XMLHttpRequest();
 
-    // Set up the event handler for the request
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Parse the JSON response
-            var filenames = JSON.parse(this.responseText);
+xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var filenames = JSON.parse(this.responseText);
+        filenames.forEach(function (filename) {
+            filenamesArray.push(filename);
+        });
+        DrawTable();
+    }
+};
 
-            // Push each filename into the global array
-            filenames.forEach(function(filename) {
-                filenamesArray.push(filename);
-            });
-            DrawTable();
-            // You can use 'filenamesArray' for further processing or logging
-            console.log("Filenames Array:", filenamesArray);
-        }
-    };
-
-    // Open and send the request to the server
-    xmlhttp.open("GET", "get_filenames.php", true);
-    xmlhttp.send();
-
-window.onload = function() {
-    //generate_array();
-    
-  };
-  
+xmlhttp.open("GET", "get_filenames.php", true);
+xmlhttp.send();
 
 dropZone.addEventListener('dragover', function (event) {
     event.preventDefault();
@@ -58,14 +44,11 @@ function uploadFile(file) {
 
     xhr.addEventListener('readystatechange', function (e) {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // File uploaded successfully
             alert('File uploaded!');
         } else if (xhr.readyState == 4 && xhr.status != 200) {
-            // Error occurred during upload
             alert('File upload failed!');
         }
     });
-
     xhr.send(formData);
 }
 
@@ -74,16 +57,12 @@ function generate_array() {
     fetch('get_filenames.php')
         .then(response => response.json())
         .then(filenames => {
-            // Push each filename into the array
-            filenames.forEach(function(filename) {
+            filenames.forEach(function (filename) {
                 filenamesArray.push(filename);
             });
-
-            // You can use 'filenamesArray' for further processing or logging
             console.log("Filenames Array:", filenamesArray);
         })
         .catch(error => console.error('Error:', error));
-
 }
 
 function DrawTable() {
@@ -91,13 +70,13 @@ function DrawTable() {
 }
 
 function Generate_table_html() {
-    if(filenamesArray.length == 0) {
+    if (filenamesArray.length == 0) {
         return '<p style="margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;" >There are no files</p>'
     }
     let table_html = "";
-    for(let i = 0; i < filenamesArray.length; i++) {
+    for (let i = 0; i < filenamesArray.length; i++) {
         let row_html = "<tr>";
-        for(let j = 0; j < 3; j++) {
+        for (let j = 0; j < 3; j++) {
             row_html += Generate_table_Cell(filenamesArray[i], j);
         }
         row_html += "</tr>";
@@ -110,14 +89,14 @@ function Generate_table_Cell(name, type) {
     let CellType = "";
     let Clickable = "";
     let text = "";
-    if(type == 0) {
+    if (type == 0) {
         CellType = "filename";
         Clickable = 'onclick="nameclick(this);"';
         text = `<a class="filelink" href="files/${name}">${name}</a>`;
-    } else if(type == 1) {
+    } else if (type == 1) {
         CellType = "download";
         text = `<a href="./files/${name}" download><img src="./assets/download.png" style="width: 30px; height: 30px; top:3px; position: relative;"></a>`;
-    } else if(type == 2) {
+    } else if (type == 2) {
         CellType = "delete";
         Clickable = 'onclick="Delete(this);"';
         text = "Delete";
