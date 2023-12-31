@@ -98,7 +98,7 @@ function Generate_table_html() {
     let table_html = "";
     for(let i = 0; i < filenamesArray.length; i++) {
         let row_html = "<tr>";
-        for(let j = 0; j < 2; j++) {
+        for(let j = 0; j < 3; j++) {
             row_html += Generate_table_Cell(filenamesArray[i], j);
         }
         row_html += "</tr>";
@@ -116,6 +116,9 @@ function Generate_table_Cell(name, type) {
         Clickable = 'onclick="nameclick(this);"';
         text = `<a class="filelink" href="files/${name}">${name}</a>`;
     } else if(type == 1) {
+        CellType = "download";
+        text = `<a href="./files/${name}" download><img src="./assets/download.png" style="width: 30px; height: 30px; top:2px; position: relative;"></a>`;
+    } else if(type == 2) {
         CellType = "delete";
         Clickable = 'onclick="Delete(this);"';
         text = "Delete";
