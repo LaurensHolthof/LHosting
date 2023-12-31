@@ -47,6 +47,10 @@ header {
     background-color: #028200;
 }
 
+#github_logo {
+    width: 50px;
+}
+
 .Pagetitle {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
