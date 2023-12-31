@@ -95,7 +95,7 @@ function Generate_table_Cell(name, type) {
         text = `<a class="filelink" href="files/${name}">${name}</a>`;
     } else if (type == 1) {
         CellType = "download";
-        text = `<a href="./files/${name}" download><img src="./assets/download.png" style="width: 30px; height: 30px; top:3px; position: relative;"></a>`;
+        text = `<a href="./files/${name}" download><img title="Download" src="./assets/download.png" style="width: 30px; height: 30px; top:3px; position: relative;"></a>`;
     } else if (type == 2) {
         CellType = "delete";
         Clickable = 'onclick="Delete(this);"';
