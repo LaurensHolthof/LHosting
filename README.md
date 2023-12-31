@@ -16,6 +16,6 @@ It's insecure and definitely subject to a lot of change, but this is my first ac
 
 ## Filestructure
 
-There are three webpages, two script files, and one style document.
-The three pages share the js file, and the php file is used by the backend to handle file storage on the server. The file explorer uses js to dynamically draw the table of items stored on the server. 
+There are three webpages, four script files, and one style document.
+The three pages share the js file, and the php files are used by the backend to handle file storage, lookup, and deletion on the server. The file explorer uses js to dynamically draw the table of items stored on the server. 
 Missing are a htaccess file and the files folder, as those are irrelevant in the github project.
