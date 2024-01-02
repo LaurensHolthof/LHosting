@@ -157,3 +157,17 @@ header {
     background-color: transparent;
     text-decoration: none;
 }
+
+#refreshbutton {
+    border: 0;
+    background-color: white;
+    padding: 0;
+    height: 50px;
+}
+
+
+
+#refreshbutton.rotated {
+    transition: transform 0.5s;
+    transform: rotate(360deg);
+}

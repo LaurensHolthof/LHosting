@@ -2,20 +2,23 @@ let dropZone = document.getElementById('drop_zone');
 let fileInput = document.getElementById('fileInput');
 let filenamesArray = [];
 
-var xmlhttp = new XMLHttpRequest();
+function GenerateArray() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var filenames = JSON.parse(this.responseText);
+            filenames.forEach(function (filename) {
+                filenamesArray.push(filename);
+            });
+            DrawTable();
+        }
+    };
 
-xmlhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var filenames = JSON.parse(this.responseText);
-        filenames.forEach(function (filename) {
-            filenamesArray.push(filename);
-        });
-        DrawTable();
-    }
-};
+    xmlhttp.open("GET", "get_filenames.php", true);
+    xmlhttp.send();
+}
 
-xmlhttp.open("GET", "get_filenames.php", true);
-xmlhttp.send();
+GenerateArray();
 
 dropZone.addEventListener('dragover', function (event) {
     event.preventDefault();
@@ -119,4 +122,17 @@ function deleteFile(filename) {
             console.log(result);
         })
         .catch(error => console.error('Error:', error));
+}
+
+function refresh() {
+    filenamesArray = [];
+    GenerateArray();
+
+    const refreshButton = document.getElementById('refreshbutton');
+    refreshButton.classList.add('rotated');
+  
+    // Remove the class after the animation completes
+    refreshButton.addEventListener('transitionend', () => {
+      refreshButton.classList.remove('rotated');
+    }, { once: true });
 }
