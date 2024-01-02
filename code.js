@@ -55,19 +55,6 @@ function uploadFile(file) {
     xhr.send(formData);
 }
 
-function generate_array() {
-
-    fetch('get_filenames.php')
-        .then(response => response.json())
-        .then(filenames => {
-            filenames.forEach(function (filename) {
-                filenamesArray.push(filename);
-            });
-            console.log("Filenames Array:", filenamesArray);
-        })
-        .catch(error => console.error('Error:', error));
-}
-
 function DrawTable() {
     document.getElementById("FilesTable").innerHTML = Generate_table_html();
 }
