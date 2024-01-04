@@ -23,4 +23,4 @@ Missing are a htaccess file and the files folder, as those are irrelevant in the
 
 ## TODO
 
-Add multi-file uploading support and make the file explorer support directories. 
+Make the file explorer support directories. 
