@@ -154,6 +154,7 @@ header {
     color: black;
     background-color: transparent;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .filelink:visited {
@@ -169,8 +170,6 @@ header {
     height: 50px;
     cursor: pointer;
 }
-
-
 
 #refreshbutton.rotated {
     transition: transform 0.5s;
@@ -190,4 +189,20 @@ header {
     position: fixed;
     bottom: 0px;
     z-index: 1;
+}
+
+#ModeSelector {
+    border: none;
+    background-color: #24a0ed;
+    color: white;
+    padding: 8px 16px;
+    padding-left: 10px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#ModeSelector:hover {
+    background-color: #1a75ae;
 }

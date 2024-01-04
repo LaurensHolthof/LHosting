@@ -2,6 +2,7 @@ let dropZone = document.getElementById('drop_zone');
 let fileInput = document.getElementById('fileInput');
 let progressContainer = document.getElementById('progress-container');
 let progressBar = document.getElementById('progress-bar');
+let CurrentMode = "🔓"
 let filenamesArray = [];
 
 function GenerateArray() {
@@ -62,10 +63,20 @@ function uploadFiles(files) {
     let formData = new FormData();
 
     for (let i = 0; i < files.length; i++) {
-        formData.append('files[]', files[i]);
+        let originalFileName = files[i].name;
+        let fileExtension = originalFileName.split('.').pop(); // Get the file extension
+
+        // Check the CurrentMode variable and modify the file name accordingly
+        let modifiedFileName =
+            (CurrentMode === "🔒")
+                ? originalFileName.replace('.' + fileExtension, '​.' + fileExtension)
+                : originalFileName;
+
+        formData.append('files[]', files[i], modifiedFileName);
     }
 
     xhr.open('POST', url, true);
+
 
     // Track the upload progress
     xhr.upload.addEventListener('progress', function (e) {
@@ -140,7 +151,7 @@ function Generate_table_Cell(name, type) {
         text = `<a href="./files/${name}" download><img title="Download" src="./assets/download.png" style="width: 30px; height: 30px; top:3px; position: relative;"></a>`;
     } else if(type == 2) {
         let fileNameWithoutExtension = name.lastIndexOf('.') !== -1 ? name.substring(0, name.lastIndexOf('.')) : name;
-        if(fileNameWithoutExtension.slice(-1) === "\udd12") {
+        if(fileNameWithoutExtension.slice(-1) === "​") {
             CellType = "delete disabled";
         } else {
             CellType = "delete";
@@ -179,4 +190,14 @@ function refresh() {
     refreshButton.addEventListener('transitionend', () => {
       refreshButton.classList.remove('rotated');
     }, { once: true });
+}
+
+function ToggleSelector() {
+    if(CurrentMode == "🔓") {
+        document.getElementById("ModeSelector").innerHTML = "🔒Locked";
+        CurrentMode = "🔒";
+    } else {
+        document.getElementById("ModeSelector").innerHTML = "🔓Unlocked";
+        CurrentMode = "🔓";
+    }
 }
