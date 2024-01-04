@@ -131,16 +131,21 @@ function Generate_table_Cell(name, type) {
     let CellType = "";
     let Clickable = "";
     let text = "";
-    if (type == 0) {
+    if(type == 0) {
         CellType = "filename";
         Clickable = 'onclick="nameclick(this);"';
         text = `<a class="filelink" href="files/${name}">${name}</a>`;
-    } else if (type == 1) {
+    } else if(type == 1) {
         CellType = "download";
         text = `<a href="./files/${name}" download><img title="Download" src="./assets/download.png" style="width: 30px; height: 30px; top:3px; position: relative;"></a>`;
-    } else if (type == 2) {
-        CellType = "delete";
-        Clickable = 'onclick="Delete(this);"';
+    } else if(type == 2) {
+        let fileNameWithoutExtension = name.lastIndexOf('.') !== -1 ? name.substring(0, name.lastIndexOf('.')) : name;
+        if(fileNameWithoutExtension.slice(-1) === "\udd12") {
+            CellType = "delete disabled";
+        } else {
+            CellType = "delete";
+            Clickable = 'onclick="Delete(this);"';
+        }
         text = "Delete";
     }
     return `<td class="board_square ${CellType}" ${Clickable}>${text}</td>`;

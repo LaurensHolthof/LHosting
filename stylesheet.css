@@ -137,9 +137,13 @@ header {
     color: white;
 }
 
-.delete:hover {
+.delete:not(.disabled):hover {
     background-color: #d11a1a;
     cursor: pointer;
+}
+
+.disabled {
+    background-color: #8f8f8f;
 }
 
 .filename {
