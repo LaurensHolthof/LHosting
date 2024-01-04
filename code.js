@@ -1,5 +1,7 @@
 let dropZone = document.getElementById('drop_zone');
 let fileInput = document.getElementById('fileInput');
+let progressContainer = document.getElementById('progress-container');
+let progressBar = document.getElementById('progress-bar');
 let filenamesArray = [];
 
 function GenerateArray() {
@@ -27,33 +29,83 @@ dropZone.addEventListener('dragover', function (event) {
 dropZone.addEventListener('drop', function (event) {
     event.preventDefault();
     let files = event.dataTransfer.files;
-    uploadFile(files[0]);
+    uploadFiles(files);
 });
 
+// Create a new file input element on each click to allow multiple selection
 dropZone.addEventListener('click', function () {
+    createFileInput();
+});
+
+function createFileInput() {
+    if (fileInput) {
+        fileInput.parentNode.removeChild(fileInput);
+    }
+
+    fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.multiple = 'multiple';
+    fileInput.style.display = 'none';
+
+    fileInput.addEventListener('change', function () {
+        uploadFiles(fileInput.files);
+    });
+
+    document.body.appendChild(fileInput);
+
     fileInput.click();
-});
+}
 
-fileInput.addEventListener('change', function () {
-    uploadFile(fileInput.files[0]);
-});
-
-function uploadFile(file) {
+function uploadFiles(files) {
     let url = './script.php';
     let xhr = new XMLHttpRequest();
     let formData = new FormData();
-    formData.append('file', file);
+
+    for (let i = 0; i < files.length; i++) {
+        formData.append('files[]', files[i]);
+    }
+
     xhr.open('POST', url, true);
 
-    xhr.addEventListener('readystatechange', function (e) {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert('File uploaded!');
-        } else if (xhr.readyState == 4 && xhr.status != 200) {
-            alert('File upload failed!');
+    // Track the upload progress
+    xhr.upload.addEventListener('progress', function (e) {
+        if (e.lengthComputable) {
+            let percentage = (e.loaded / e.total) * 100;
+            progressBar.style.width = percentage + '%';
         }
     });
+
+    // Handle the completion of the upload
+    xhr.addEventListener('load', function () {
+        if (xhr.status == 200) {
+            alert('Files uploaded!');
+        } else {
+            alert('File upload failed!');
+        }
+
+        // Reset the progress bar
+        progressBar.style.width = '0';
+        progressContainer.style.display = 'none';
+    });
+
+    // Handle errors
+    xhr.addEventListener('error', function () {
+        alert('File upload failed!');
+        progressBar.style.width = '0';
+        progressContainer.style.display = 'none';
+    });
+
+    // Show the progress bar
+    progressContainer.style.display = 'block';
+
     xhr.send(formData);
 }
+
+// Initial file input creation
+fileInput = null;
+createFileInput();
+
+
 
 function DrawTable() {
     document.getElementById("FilesTable").innerHTML = Generate_table_html();

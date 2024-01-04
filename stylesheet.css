@@ -172,3 +172,18 @@ header {
     transition: transform 0.5s;
     transform: rotate(360deg);
 }
+
+#progress-container {
+    display: none;
+    margin-top: 20px;
+}
+
+#progress-bar {
+    width: 0;
+    height: 20px;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+    position: fixed;
+    bottom: 0px;
+    z-index: 1;
+}
