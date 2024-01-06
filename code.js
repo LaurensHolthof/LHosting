@@ -64,18 +64,25 @@ function uploadFiles(files) {
 
     for (let i = 0; i < files.length; i++) {
         let originalFileName = files[i].name;
-        let fileExtension = originalFileName.split('.').pop(); // Get the file extension
+        let fileExtension = originalFileName.split('.').pop();
 
-        // Check the CurrentMode variable and modify the file name accordingly
-        let modifiedFileName =
-            (CurrentMode === "🔒")
-                ? originalFileName.replace('.' + fileExtension, '​.' + fileExtension)
-                : originalFileName;
+        // Check if the file extension is not php
+        if (fileExtension.toLowerCase() !== 'php') {
+            // Check the CurrentMode variable and modify the file name accordingly
+            let modifiedFileName =
+                (CurrentMode === "🔒")
+                    ? originalFileName.replace('.' + fileExtension, '_prefix.' + fileExtension)
+                    : originalFileName;
 
-        formData.append('files[]', files[i], modifiedFileName);
+            formData.append('files[]', files[i], modifiedFileName);
+        } else {
+            alert('PHP files are not allowed.');
+            return; // Stop processing and inform the user
+        }
     }
 
     xhr.open('POST', url, true);
+
 
 
     // Track the upload progress
