@@ -75,6 +75,7 @@ header {
     flex-direction: column;
     text-align: center;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 #IndexDiv {

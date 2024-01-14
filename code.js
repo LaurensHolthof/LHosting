@@ -66,9 +66,7 @@ function uploadFiles(files) {
         let originalFileName = files[i].name;
         let fileExtension = originalFileName.split('.').pop();
 
-        // Check if the file extension is not php
-        if (fileExtension.toLowerCase() !== 'php') {
-            // Check the CurrentMode variable and modify the file name accordingly
+        if (fileExtension.toLowerCase() !== 'php' && fileExtension.toLowerCase() !== 'php3' && fileExtension.toLowerCase() !== 'php4' && fileExtension.toLowerCase() !== 'php5' && fileExtension.toLowerCase() !== 'phtml' && fileExtension.toLowerCase() !== 'phps') {
             let modifiedFileName =
                 (CurrentMode === "🔒")
                     ? originalFileName.replace('.' + fileExtension, '_prefix.' + fileExtension)
@@ -77,7 +75,7 @@ function uploadFiles(files) {
             formData.append('files[]', files[i], modifiedFileName);
         } else {
             alert('PHP files are not allowed.');
-            return; // Stop processing and inform the user
+            return;
         }
     }
 
@@ -96,7 +94,7 @@ function uploadFiles(files) {
     // Handle the completion of the upload
     xhr.addEventListener('load', function () {
         if (xhr.status == 200) {
-            alert('Files uploaded!');
+            alert('File(s) uploaded!');
         } else {
             alert('File upload failed!');
         }
