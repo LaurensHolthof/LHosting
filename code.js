@@ -33,7 +33,6 @@ dropZone.addEventListener('drop', function (event) {
     uploadFiles(files);
 });
 
-// Create a new file input element on each click to allow multiple selection
 dropZone.addEventListener('click', function () {
     createFileInput();
 });
@@ -81,47 +80,32 @@ function uploadFiles(files) {
 
     xhr.open('POST', url, true);
 
-
-
-    // Track the upload progress
     xhr.upload.addEventListener('progress', function (e) {
         if (e.lengthComputable) {
             let percentage = (e.loaded / e.total) * 100;
             progressBar.style.width = percentage + '%';
         }
+        
     });
 
-    // Handle the completion of the upload
     xhr.addEventListener('load', function () {
-        if (xhr.status == 200) {
-            alert('File(s) uploaded!');
-        } else {
-            alert('File upload failed!');
-        }
-
-        // Reset the progress bar
+        alert(xhr.response);
         progressBar.style.width = '0';
         progressContainer.style.display = 'none';
     });
 
-    // Handle errors
     xhr.addEventListener('error', function () {
         alert('File upload failed!');
         progressBar.style.width = '0';
         progressContainer.style.display = 'none';
     });
 
-    // Show the progress bar
     progressContainer.style.display = 'block';
-
     xhr.send(formData);
 }
 
-// Initial file input creation
 fileInput = null;
 createFileInput();
-
-
 
 function DrawTable() {
     document.getElementById("FilesTable").innerHTML = Generate_table_html();
@@ -191,7 +175,6 @@ function refresh() {
     const refreshButton = document.getElementById('refreshbutton');
     refreshButton.classList.add('rotated');
   
-    // Remove the class after the animation completes
     refreshButton.addEventListener('transitionend', () => {
       refreshButton.classList.remove('rotated');
     }, { once: true });

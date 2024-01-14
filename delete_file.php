@@ -1,17 +1,12 @@
 <?php
-// Ensure that a filename parameter is provided
 if (isset($_GET['filename'])) {
     $filename = $_GET['filename'];
 
-    // Specify the directory path where the file is located
-    $directory = './files/'; // Replace with the actual path
+    $directory = './files/';
 
-    // Construct the full path to the file
     $filepath = $directory . $filename;
 
-    // Check if the file exists before attempting to delete
     if (file_exists($filepath)) {
-        // Attempt to delete the file
         if (unlink($filepath)) {
             echo "File $filename deleted successfully.";
         } else {
