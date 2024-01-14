@@ -8,7 +8,7 @@ if (isset($_FILES["files"])) {
         $originalFileName = $files["name"][$i];
         $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
 
-        if (strtolower($fileExtension) !== 'php') {
+        if (strtolower($fileExtension) !== 'php' && strtolower($fileExtension) !== 'php3' && strtolower($fileExtension) !== 'php4' && strtolower($fileExtension) !== 'php5' && strtolower($fileExtension) !== 'php7' && strtolower($fileExtension) !== 'phtml' && strtolower($fileExtension) !== 'phps') {
             $target_file = $target_dir . basename($files["name"][$i]);
 
             if (move_uploaded_file($files["tmp_name"][$i], $target_file)) {
