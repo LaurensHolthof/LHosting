@@ -23,5 +23,5 @@ Missing are a htaccess file and the files folder, as those are irrelevant in the
 
 ## Todo
 
-Dark mode.
-Make the file explorer support directories. 
+- Dark mode
+- Make the file explorer support directories
