@@ -13,13 +13,19 @@ This isn't a high-security application, and there's about a thousand ways to exp
 
 ## Table of Contents
 
+- [Usage](#usage)
 - [File structure](#file-structure)
-- [Todo](#Todo)
+- [Todo](#todo)
+
+## Usage
+
+To upload files, drag them into the upload zone on the upload page, or click the rectangle and select the files you want to upload. A green bar will indicate upload progress. To open a file, click its name in the file explorer. Downloading is done with the download button and deletion is done with the... deletion button. Rocket science, I know. 
 
 ## File structure
 
 There are three webpages, four script files, and one style document.
-The three pages share the js file, and the php files are used by the backend to handle file storage, lookup, and deletion on the server. The file explorer uses js to dynamically draw the table of items stored on the server. 
+The three pages share the js file, and the php files are used by the backend to handle file storage, lookup, and deletion on the server.
+The file explorer uses js to dynamically draw the table of items stored on the server. 
 Missing are a htaccess file and the files folder, as those are irrelevant in the github project.
 
 ## Todo
