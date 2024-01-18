@@ -8,7 +8,8 @@
 ## Description
 
 This project is a little file hosting/sharing platform, made as both a passion project and as an easy way to share and host files for me and my friends.
-It's insecure and definitely subject to a lot of change, but this is my first actual project :).
+It's insecure and definitely subject to a lot of change, but this is my first actual project :). If you find a vulnerability, I'm probably aware of it and not planning on fixing it.
+This isn't a high-security application, and there's about a thousand ways to exploit it.
 
 ## Table of Contents
 
