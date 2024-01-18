@@ -13,7 +13,7 @@ This isn't a high-security application, and there's about a thousand ways to exp
 
 ## Table of Contents
 
-- [File structure](#Filestructure)
+- [File structure](#file-structure)
 - [Todo](#Todo)
 
 ## File structure
