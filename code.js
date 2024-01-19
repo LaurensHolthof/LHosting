@@ -68,7 +68,7 @@ function uploadFiles(files) {
         if (fileExtension.toLowerCase() !== 'php' && fileExtension.toLowerCase() !== 'php3' && fileExtension.toLowerCase() !== 'php4' && fileExtension.toLowerCase() !== 'php5' && fileExtension.toLowerCase() !== 'php7' && fileExtension.toLowerCase() !== 'phtml' && fileExtension.toLowerCase() !== 'phps') {
             let modifiedFileName =
                 (CurrentMode === "🔒")
-                    ? originalFileName.replace('.' + fileExtension, '_prefix.' + fileExtension)
+                    ? originalFileName.replace('.' + fileExtension, '​' + fileExtension)
                     : originalFileName;
 
             formData.append('files[]', files[i], modifiedFileName);

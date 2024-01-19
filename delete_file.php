@@ -1,9 +1,7 @@
 <?php
 if (isset($_GET['filename'])) {
     $filename = $_GET['filename'];
-
     $directory = './files/';
-
     $filepath = $directory . $filename;
 
     if (file_exists($filepath)) {
