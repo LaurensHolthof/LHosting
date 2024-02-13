@@ -31,16 +31,16 @@ Missing are a htaccess file and the files folder, as those are irrelevant in the
 
 ## How to Host
 
-Step 1: 
+Step 1: <br>
 Run `git clone https://github.com/LaurensHolthof/LHosting` in the directory you want to host the site. 
 
-Step 2: 
+Step 2: <br>
 Create a files directory in that same directory. To achieve this you can run `mkdir files`.
 
-Step 3 (optional):
+Step 3 (optional): <br>
 Create a .htaccess file that sets the DirectoryIndex of the files directory to something that isn't index.html, this can be gibberish.
 
-Step 4:
+Step 4: <br>
 Start your web hosting server of choice. Make sure it supports php though! 
 
 
