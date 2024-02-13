@@ -41,7 +41,7 @@ Step 3 (optional):
 Create a .htaccess file that sets the DirectoryIndex of the files directory to something that isn't index.html, this can be gibberish.
 
 Step 4:
-Start the php/apache server. 
+Start your web hosting server of choice. Make sure it supports php though! 
 
 
 ## Todo
