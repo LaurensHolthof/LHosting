@@ -15,7 +15,7 @@ This isn't a high-security application, and there's about a thousand ways to exp
 
 - [Usage](#usage)
 - [File Structure](#file-Structure)
-- [How to Dost](#How-to-Host) 
+- [How to Host](#How-to-Host) 
 - [Todo](#todo)
 
 ## Usage
