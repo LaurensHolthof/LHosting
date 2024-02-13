@@ -33,10 +33,13 @@ Missing are a htaccess file and the files folder, as those are irrelevant in the
 
 Step 1: 
 Run `git clone https://github.com/LaurensHolthof/LHosting` in the directory you want to host the site. 
+
 Step 2: 
 Create a files directory in that same directory. To achieve this you can run `mkdir files`.
+
 Step 3 (optional):
 Create a .htaccess file that sets the DirectoryIndex of the files directory to something that isn't index.html, this can be gibberish.
+
 Step 4:
 Start the php/apache server. 
 
