@@ -46,5 +46,6 @@ Start your web hosting server of choice. Make sure it supports php though!
 
 ## Todo
 
+- Private uploads
 - Dark mode
 - Make the file explorer support directories
