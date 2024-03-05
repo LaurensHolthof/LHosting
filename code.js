@@ -30,14 +30,14 @@ dropZone.addEventListener('dragover', function (event) {
 dropZone.addEventListener('drop', function (event) {
     event.preventDefault();
     let files = event.dataTransfer.files;
-    uploadFiles(files);
+    UploadFiles(files);
 });
 
 dropZone.addEventListener('click', function () {
-    createFileInput();
+    CreateFileInput();
 });
 
-function createFileInput() {
+function CreateFileInput() {
     if (fileInput) {
         fileInput.parentNode.removeChild(fileInput);
     }
@@ -48,7 +48,7 @@ function createFileInput() {
     fileInput.style.display = 'none';
 
     fileInput.addEventListener('change', function () {
-        uploadFiles(fileInput.files);
+        UploadFiles(fileInput.files);
     });
 
     document.body.appendChild(fileInput);
@@ -56,7 +56,7 @@ function createFileInput() {
     fileInput.click();
 }
 
-function uploadFiles(files) {
+function UploadFiles(files) {
     let url = './script.php';
     let xhr = new XMLHttpRequest();
     let formData = new FormData();
@@ -105,13 +105,13 @@ function uploadFiles(files) {
 }
 
 fileInput = null;
-createFileInput();
+CreateFileInput();
 
 function DrawTable() {
-    document.getElementById("FilesTable").innerHTML = Generate_table_html();
+    document.getElementById("FilesTable").innerHTML = GenerateTableHtml();
 }
 
-function Generate_table_html() {
+function GenerateTableHtml() {
     if (filenamesArray.length == 0) {
         return '<p style="margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;" >There are no files</p>'
     }
@@ -119,7 +119,7 @@ function Generate_table_html() {
     for (let i = 0; i < filenamesArray.length; i++) {
         let row_html = "<tr>";
         for (let j = 0; j < 3; j++) {
-            row_html += Generate_table_Cell(filenamesArray[i], j);
+            row_html += GenerateTableCell(filenamesArray[i], j);
         }
         row_html += "</tr>";
         table_html += row_html;
@@ -127,13 +127,12 @@ function Generate_table_html() {
     return `<table id="MainTable">${table_html}</table>`;
 }
 
-function Generate_table_Cell(name, type) {
+function GenerateTableCell(name, type) {
     let CellType = "";
     let Clickable = "";
     let text = "";
     if(type == 0) {
         CellType = "filename";
-        Clickable = 'onclick="nameclick(this);"';
         text = `<a class="filelink" href="files/${name}">${name}</a>`;
     } else if(type == 1) {
         CellType = "download";
@@ -153,13 +152,18 @@ function Generate_table_Cell(name, type) {
 
 function Delete(cell) {
     let index = cell.parentNode.rowIndex;
-    deleteFile(filenamesArray[index]);
-    filenamesArray.splice(index, 1);
-    DrawTable();
+    let fileNameWithoutExtension = filenamesArray[index].lastIndexOf('.') !== -1 ? filenamesArray[index].substring(0, filenamesArray[index].lastIndexOf('.')) : filenamesArray[index];
+    if(fileNameWithoutExtension.slice(-1) !== "​") {
+        DeleteFile(filenamesArray[index]);
+        filenamesArray.splice(index, 1);
+        DrawTable();
+    } else {
+        alert("Oi! Don't do that!")
+    }
     return;
 }
 
-function deleteFile(filename) {
+function DeleteFile(filename) {
     fetch('delete_file.php?filename=' + encodeURIComponent(filename))
         .then(response => response.text())
         .then(result => {
