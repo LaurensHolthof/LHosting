@@ -158,7 +158,7 @@ function Delete(cell) {
         filenamesArray.splice(index, 1);
         DrawTable();
     } else {
-        alert("Oi! Don't do that!")
+        alert("Oi! Don't do that!");
     }
     return;
 }
