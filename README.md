@@ -32,7 +32,7 @@ Missing are a htaccess file and the files folder, as those are irrelevant in the
 ## How to Host
 
 Step 1: <br>
-Run `git clone https://github.com/LaurensHolthof/LHosting` in the directory you want to host the site. 
+Run `git clone https://github.com/LaurensHolthof/LHosting` in the directory you want to host the site in. 
 
 Step 2: <br>
 Create a files directory in that same directory. To achieve this you can run `mkdir files`.
