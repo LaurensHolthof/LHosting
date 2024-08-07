@@ -20,7 +20,7 @@ This isn't a high-security application, and there's about a thousand ways to exp
 
 ## Usage
 
-To upload files, drag them into the upload zone on the upload page, or click the rectangle and select the files you want to upload. A green bar will indicate upload progress. To open a file, click its name in the file explorer. Downloading is done with the download button and deletion is done with the... deletion button. Rocket science, I know. 
+To upload files, drag them into the upload zone on the upload page, or click the rectangle and select the files you want to upload. A green bar will indicate upload progress. To open a file, click its name in the file explorer. Downloading is done with the download button and deletion is done with... the deletion button. Rocket science, I know. 
 
 ## File Structure
 
