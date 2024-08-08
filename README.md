@@ -8,8 +8,8 @@
 ## Description
 
 This project is a little file hosting/sharing platform, made as both a passion project and as an easy way to share and host files for me and my friends.
-It's insecure and definitely subject to a lot of change, but this is my first actual project :). If you find a vulnerability, I'm probably aware of it and not planning on fixing it.
-This isn't a high-security application, and there's about a thousand ways to exploit it.
+It's insecure and definitely subject to a lot of change, but this is my first actual project :). If you find a vulnerability, I'm probably aware of it but feel free to report it anyway.
+This isn't a high-security application, and there's about a thousand ways to exploit it, so keep that in mind when uploading files to it.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ This isn't a high-security application, and there's about a thousand ways to exp
 
 ## Usage
 
-To upload files, drag them into the upload zone on the upload page, or click the rectangle and select the files you want to upload. A green bar will indicate upload progress. To open a file, click its name in the file explorer. Downloading is done with the download button and deletion is done with the... deletion button. Rocket science, I know. 
+To upload files, drag them into the upload zone on the upload page, or click the rectangle and select the files you want to upload. A green bar will indicate upload progress. To open a file, click its name in the file explorer. Downloading is done with the download button and deletion is done with... the deletion button. Rocket science, I know. 
 
 ## File Structure
 
@@ -32,7 +32,7 @@ Missing are a htaccess file and the files folder, as those are irrelevant in the
 ## How to Host
 
 Step 1: <br>
-Run `git clone https://github.com/LaurensHolthof/LHosting` in the directory you want to host the site. 
+Run `git clone https://github.com/LaurensHolthof/LHosting` in the directory you want to host the site in. 
 
 Step 2: <br>
 Create a files directory in that same directory. To achieve this you can run `mkdir files`.
@@ -41,11 +41,11 @@ Step 3 (optional): <br>
 Create a .htaccess file that sets the DirectoryIndex of the files directory to something that isn't index.html, this can be gibberish.
 
 Step 4: <br>
-Start your web hosting server of choice. Make sure it supports php though! 
+Start your webserver of choice e.g. Apache or Nginx. Make sure it supports php though! 
 
 
 ## Todo
-
+- UI rework
 - Private uploads
 - Dark mode
 - Make the file explorer support directories
