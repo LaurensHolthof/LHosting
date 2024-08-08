@@ -124,7 +124,7 @@ function GenerateTableHtml() {
         row_html += "</tr>";
         table_html += row_html;
     }
-    return `<table id="MainTable">${table_html}</table>`;
+    return `<h1 class="Pagetitle" style="text-align: left; padding-left: 10px; margin: 0;">File explorer</h1><table id="MainTable">${table_html}</table>`;
 }
 
 function GenerateTableCell(name, type) {

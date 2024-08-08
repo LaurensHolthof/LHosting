@@ -3,15 +3,15 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: #f8f9fa;
 }
 
 header {
-    background-color: rgb(203, 203, 203);
+    background-color: #212529;
     display: flex;
     justify-content: space-between;
     align-items: center;
     user-select: none;
-    border-radius: 5px;
 }
 
 #HeaderImage {
@@ -27,7 +27,7 @@ header {
 
 .HeaderButton {
     border: none;
-    background-color: #24a0ed;
+    background-color: #00436d;
     color: white;
     padding: 8px 16px;
     text-align: center;
@@ -37,15 +37,15 @@ header {
 }
 
 .HeaderButton:hover {
-    background-color: #1a75ae;
+    background-color: #002b46;
 }
 
 .selected {
-    background-color: #06b703;
+    background-color: #848484;
 }
 
 .selected:hover {
-    background-color: #028200;
+    background-color: #5b5b5b;
 }
 
 #github_logo {
@@ -92,8 +92,11 @@ header {
     width: 80vw;
     position: relative;
     left: 10vw;
-    border: 10px solid darkgrey;
-    border-radius: 20px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    margin-top: 50px;
 }
 
 #MainTable {
@@ -115,18 +118,17 @@ header {
     padding: 2px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    border-radius: 40px;
+    border-radius: 5px;
 }
 
 .download {
     width: 40px;
-    background-color: #47df15;
-    border-radius: 40px;
+    background-color: #434343;
     text-align: center;
 }
 
 .download:hover {
-    background-color: #3cbe10;
+    background-color: #3faf1a;
     cursor: pointer;
 }
 
@@ -134,12 +136,12 @@ header {
     text-align: center; 
     width: 85px;
     font-size: 20px;
-    background-color: #f91414;
+    background-color: #d52424;
     color: white;
 }
 
 .delete:not(.disabled):hover {
-    background-color: #d11a1a;
+    background-color: #a50b0b;
     cursor: pointer;
 }
 
@@ -166,7 +168,7 @@ header {
 
 #refreshbutton {
     border: 0;
-    background-color: white;
+    background-color: #f8f9fa;
     padding: 0;
     height: 50px;
     cursor: pointer;
@@ -194,7 +196,7 @@ header {
 
 #ModeSelector {
     border: none;
-    background-color: #24a0ed;
+    background-color: #005a92;
     color: white;
     padding: 8px 16px;
     padding-left: 10px;
@@ -205,5 +207,5 @@ header {
 }
 
 #ModeSelector:hover {
-    background-color: #1a75ae;
+    background-color: #002b46;
 }
