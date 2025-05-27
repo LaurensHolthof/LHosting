@@ -45,7 +45,6 @@ Start your webserver of choice e.g. Apache or Nginx. Make sure it supports php t
 
 
 ## Todo
-- UI rework
 - Private uploads
 - Dark mode
 - Make the file explorer support directories
