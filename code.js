@@ -6,13 +6,15 @@ let CurrentMode = "🔓"
 let filenamesArray = [];
 
 function GenerateArray() {
-    fetch("get_filenames.php").then(filenames => {
-        filenames.forEach(filename => {
-            filenamesArray.push(filename);
-        });
+    fetch("get_filenames.php")
+    .then(response => response.json())
+    .then(filenames => {
+        filenamesArray = [...filenames]; 
         DrawTable();
     })
 }
+
+GenerateArray();
 
 dropZone.addEventListener('dragover', function (event) {
     event.preventDefault();
@@ -171,5 +173,3 @@ function ToggleSelector() {
 function toggleMenu() {
     document.getElementById('Header').classList.toggle('show');
 }
-
-GenerateArray();
