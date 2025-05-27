@@ -1,27 +1,18 @@
 let dropZone = document.getElementById('drop_zone');
-let fileInput = document.getElementById('fileInput');
+let fileInput = document.getElementById('UploadInput');
 let progressContainer = document.getElementById('progress-container');
 let progressBar = document.getElementById('progress-bar');
 let CurrentMode = "🔓"
 let filenamesArray = [];
 
 function GenerateArray() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var filenames = JSON.parse(this.responseText);
-            filenames.forEach(function (filename) {
-                filenamesArray.push(filename);
-            });
-            DrawTable();
-        }
-    };
-
-    xmlhttp.open("GET", "get_filenames.php", true);
-    xmlhttp.send();
+    fetch("get_filenames.php").then(filenames => {
+        filenames.forEach(filename => {
+            filenamesArray.push(filename);
+        });
+        DrawTable();
+    })
 }
-
-GenerateArray();
 
 dropZone.addEventListener('dragover', function (event) {
     event.preventDefault();
@@ -34,30 +25,15 @@ dropZone.addEventListener('drop', function (event) {
 });
 
 dropZone.addEventListener('click', function () {
-    CreateFileInput();
+    fileInput.click();
 });
 
-function CreateFileInput() {
-    if (fileInput) {
-        fileInput.parentNode.removeChild(fileInput);
-    }
-
-    fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.multiple = 'multiple';
-    fileInput.style.display = 'none';
-
-    fileInput.addEventListener('change', function () {
-        UploadFiles(fileInput.files);
-    });
-
-    document.body.appendChild(fileInput);
-
-    fileInput.click();
-}
+fileInput.addEventListener('change', function () {
+    UploadFiles(fileInput.files);
+});
 
 function UploadFiles(files) {
-    let url = './script.php';
+    let url = './upload_files.php';
     let xhr = new XMLHttpRequest();
     let formData = new FormData();
 
@@ -104,8 +80,6 @@ function UploadFiles(files) {
     xhr.send(formData);
 }
 
-fileInput = null;
-CreateFileInput();
 
 function DrawTable() {
     document.getElementById("FilesTable").innerHTML = GenerateTableHtml();
@@ -197,3 +171,5 @@ function ToggleSelector() {
 function toggleMenu() {
     document.getElementById('Header').classList.toggle('show');
 }
+
+GenerateArray();
