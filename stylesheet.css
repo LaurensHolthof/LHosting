@@ -122,12 +122,10 @@ header {
 
 #MainTable {
     position: relative;
-    border: 2px solid white;
-    background-color: white;
-    border-radius: 20px;
     user-select: none;
     width: 100%;
     table-layout: fixed;
+    padding: 5px;
 }
 
 .board_square {
