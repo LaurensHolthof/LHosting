@@ -10,6 +10,7 @@
     gtag('config', 'G-V128WYYZ3L');
   </script>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="utf-8" http-equiv="encoding">
   <title>LHosting - Upload</title>
   <meta name="author" content="Laurens Holthof">
@@ -20,21 +21,28 @@
 <body>
   <header>
     <a href="https://lhsolutions.be"><img id="HeaderImage" src="assets/lhs.png" /></a>
-    <div id="Header">
+    <button id="Hamburger" onclick="toggleMenu()">☰</button>
+    <nav id="Header">
       <a href="./"><button class="HeaderButton">Home</button></a>
       <a href="./upload.html"><button class="HeaderButton selected">Upload</button></a>
       <a href="./file-explorer.html"><button class="HeaderButton">Files</button></a>
-    </div>
+    </nav>
   </header>
-  <h1 class="Pagetitle">Upload zone</h1>
+  <div style="display: flex;justify-content: center;">
+  <div id="UIContainer">
+    <span id="TitleSpan">
+    <h1 class="Pagetitle">Upload zone</h1>
+    <button id="ModeSelector" onclick="ToggleSelector()">🔓Unlocked</button>
+    </span>
+    <div id="drop_zone">
+      <p>Click to upload or drag files here (Max 2GB)</p>
+      <p>Files dropped here will end up in the <a href="./files">./files directory</a>.</p>
+      <input type="file" id="fileInput" style="display: none;">
+    </div>
+  </div>
+  </div>
   <div id="progress-container">
     <div id="progress-bar"></div>
-  </div>
-  <div style="text-align: center;"><button id="ModeSelector" onclick="ToggleSelector()">🔓Unlocked</button></div>
-  <div id="drop_zone">
-    <p>Click to upload or drag files here (Max 2GB)</p>
-    <p>Files dropped here will end up in the <a href="./files">./files directory</a>.</p>
-    <input type="file" id="fileInput" style="display: none;">
   </div>
   <a href="https://github.com/LaurensHolthof/LHosting"><img id="github_logo" src="assets/github-mark.png"></a>
 </body>

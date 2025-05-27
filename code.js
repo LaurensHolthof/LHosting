@@ -193,3 +193,7 @@ function ToggleSelector() {
         CurrentMode = "🔓";
     }
 }
+
+function toggleMenu() {
+    document.getElementById('Header').classList.toggle('show');
+}

@@ -10,6 +10,7 @@
     gtag('config', 'G-V128WYYZ3L');
   </script>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="utf-8" http-equiv="encoding">
   <title>LHosting - Home</title>
   <meta name="author" content="Laurens Holthof">
@@ -20,14 +21,15 @@
 <body>
   <header>
     <a href="https://lhsolutions.be"><img id="HeaderImage" src="assets/lhs.png" /></a>
-    <div id="Header">
+    <button id="Hamburger" onclick="toggleMenu()">☰</button>
+    <nav id="Header">
       <a href="./"><button class="HeaderButton selected">Home</button></a>
       <a href="./upload.html"><button class="HeaderButton">Upload</button></a>
       <a href="./file-explorer.html"><button class="HeaderButton">Files</button></a>
-    </div>
+    </nav>
   </header>
-  <h1 class="Pagetitle">Welcome to my insecure little file hosting platform!</h1>
   <div id="IndexDiv">
+    <h1 class="Pagetitle">Welcome to my insecure little file hosting platform!</h1>
     <p>You can see/open, download and delete files with the file explorer</p>
     <p>You can make it so your files can't be deleted by selecting 🔒locked</p>
     <p>If you accidentally locked a file, contact me to delete it</p>
